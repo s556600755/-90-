@@ -37,3 +37,32 @@ for (let i = 0; i < scores.length; i++) {
     total += scores[i];
 }
 console.log(total)
+
+const users = [
+    {
+        name: "Wen",
+        age: 28,
+        city: "Tainan",
+        hobby : '網球'
+    },
+    {
+        name: "Amy",
+        age: 24,
+        city: "Taipei",
+        hobby : '足球'
+    },
+    {
+        name: "Huang",
+        age: 30,
+        city: "Taipei",
+        hobby : '桌球'
+    }
+];
+
+for (let i = 0; i < users.length; i++) {
+    console.log("名字：" + users[i].name);
+    console.log("年齡：" + users[i].age);
+    console.log("城市：" + users[i].city);
+    console.log("興趣：" + users[i].hobby)
+    console.log("------------");
+}
