@@ -38,54 +38,56 @@
 // }
 // console.log(total)
 
-// const users = [
-//     {
-//         name: "Wen",
-//         age: 28,
-//         city: "Tainan",
-//         hobby: '網球'
-//     },
-//     {
-//         name: "Amy",
-//         age: 24,
-//         city: "Taipei",
-//         hobby: '足球'
-//     },
-//     {
-//         name: "Huang",
-//         age: 30,
-//         city: "Taipei",
-//         hobby: '桌球'
-//     }
-// ];
+/* 這是第8天
+const users = [
+    {
+        name: "Wen",
+        age: 28,
+        city: "Tainan",
+        hobby: '網球'
+    },
+    {
+        name: "Amy",
+        age: 24,
+        city: "Taipei",
+        hobby: '足球'
+    },
+    {
+        name: "Huang",
+        age: 30,
+        city: "Taipei",
+        hobby: '桌球'
+    }
+];
 
-// for (let i = 0; i < users.length; i++) {
-//     console.log("名字：" + users[i].name);
-//     console.log("年齡：" + users[i].age);
-//     console.log("城市：" + users[i].city);
-//     console.log("興趣：" + users[i].hobby)
-//     console.log("------------");
-// }
+for (let i = 0; i < users.length; i++) {
+    console.log("名字：" + users[i].name);
+    console.log("年齡：" + users[i].age);
+    console.log("城市：" + users[i].city);
+    console.log("興趣：" + users[i].hobby)
+    console.log("------------");
+}
 
-// const title = document.querySelector('#title');
-// let content = ''
-// for (let i = 0; i < users.length; i++) {
-//     console.log(users[i])
-//     content += `
-//     姓名: ${users[i].name} <br> 
-//     居住地: ${users[i].city} <br> 
-//     年齡: ${users[i].age} <br> 
-//     興趣: ${users[i].hobby} <br>
-//     `
+const title = document.querySelector('#title');
+let content = ''
+for (let i = 0; i < users.length; i++) {
+    console.log(users[i])
+    content += `
+    姓名: ${users[i].name} <br> 
+    居住地: ${users[i].city} <br> 
+    年齡: ${users[i].age} <br> 
+    興趣: ${users[i].hobby} <br>
+    `
 
     
 
-// }console.log(content)
+}console.log(content)
 
-// title.innerHTML = `<p>${content}</p>`
+title.innerHTML = `<p>${content}</p>`
 
-// const body = document.querySelector('#body');
+const body = document.querySelector('#body'); */
 
+/* 這是第9天
 const input = document.querySelector('#input');
 const btn  = document.querySelector('#btn');
 const message = document.querySelector('#message');
@@ -107,4 +109,36 @@ bmiBtn.addEventListener('click', () => {
     const result = weightValue / ((heightValue/100)**2)
     console.log(result)
     output.textContent = result.toFixed(2);
+}); */
+
+
+const input = document.querySelector("#input");
+
+const btn = document.querySelector("#btn");
+
+const list = document.querySelector("#list");
+
+const output = document.querySelector('.output');
+
+const now = new Date(); 
+console.log(now)
+btn.addEventListener("click", function () {
+     const inputText = input.value;
+
+     if(inputText ==='你好'){
+        
+        output.innerHTML+=`
+        <p>你:${inputText}</p>
+        <p>AI:你好,我是AI助手</p>
+        `
+        return;
+     }
+  output.innerHTML += `
+    <p>使用者 : ${inputText} </p> 
+    <p>${now.toLocaleTimeString()}</p>
+
+    
+  `;
+
 });
+
