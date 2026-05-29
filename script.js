@@ -43,19 +43,19 @@ const users = [
         name: "Wen",
         age: 28,
         city: "Tainan",
-        hobby : '網球'
+        hobby: '網球'
     },
     {
         name: "Amy",
         age: 24,
         city: "Taipei",
-        hobby : '足球'
+        hobby: '足球'
     },
     {
         name: "Huang",
         age: 30,
         city: "Taipei",
-        hobby : '桌球'
+        hobby: '桌球'
     }
 ];
 
@@ -66,3 +66,24 @@ for (let i = 0; i < users.length; i++) {
     console.log("興趣：" + users[i].hobby)
     console.log("------------");
 }
+
+const title = document.querySelector('#title');
+let content = ''
+for (let i = 0; i < users.length; i++) {
+    console.log(users[i])
+    content += `
+    姓名: ${users[i].name} <br> 
+    居住地: ${users[i].city} <br> 
+    年齡: ${users[i].age} <br> 
+    興趣: ${users[i].hobby} <br>
+    `
+
+    
+
+}console.log(content)
+
+title.innerHTML = `<p>${content}</p>`
+
+const body = document.querySelector('#body');
+
+body.style.backgroundColor = 'green'
