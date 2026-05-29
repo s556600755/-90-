@@ -111,8 +111,8 @@ bmiBtn.addEventListener('click', () => {
     output.textContent = result.toFixed(2);
 }); */
 
-
-const input = document.querySelector("#input");
+//這是第10天
+/* const input = document.querySelector("#input");
 
 const btn = document.querySelector("#btn");
 
@@ -140,5 +140,53 @@ btn.addEventListener("click", function () {
     
   `;
 
+}); */
+const chats = []
+const data = []
+const todos = []
+const input = document.querySelector('#input');
+const list = document.querySelector('#list');
+
+const btn = document.querySelector('#btn');
+
+btn.addEventListener('click', () => {
+    const inputText = input.value;
+    if(inputText===""){return}
+
+    if(inputText==="你好"){
+        chats.push({user:inputText,bot:'你好,我是AI'})
+        console.log(chats)
+    }else{
+        chats.push({user:inputText,bot:'我還在學習中'})
+    }
+    data.push({user:"wen",text:inputText})
+    console.log(data)
+    todos.push({text:inputText})
+    console.log(todos)
+    
+    
+    render();
 });
 
+function render() {
+    list.innerHTML = '';
+
+    todos.forEach((todo) => {
+        list.innerHTML += `
+        <li>${todo.text} <button >刪除</button></li>
+        `
+    })
+
+    data.forEach(data => {  
+        list.innerHTML +=`
+        <li>${data.user}:${data.text}</li>
+        `
+    });
+
+    chats.forEach((chat)=>{
+        list.innerHTML+=`
+        <li>你:${chat.user}:</li>
+        <li>AI:${chat.bot}</li>
+        `
+    })
+}
