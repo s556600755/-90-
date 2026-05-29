@@ -18,5 +18,11 @@ const password = 1234;
 
 (admin === 'user' && password === 1234) ? console.log('登入成功') : console.log('帳號或密碼錯誤')
 
+function calculatePrice(price, quantity) {
+    const totalPrice = price * quantity
+    return totalPrice;
+}
 
+const result = calculatePrice(60,10)
 
+console.log('總價:'+result+"元");
