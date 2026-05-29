@@ -23,6 +23,17 @@ function calculatePrice(price, quantity) {
     return totalPrice;
 }
 
-const result = calculatePrice(60,10)
+const result = calculatePrice(60, 10)
 
-console.log('總價:'+result+"元");
+console.log('總價:' + result + "元");
+
+const foods = ["raman", "pizza"];
+foods.push('sushi')
+console.log(foods)
+
+const scores = [80, 90, 70];
+let total = 0;
+for (let i = 0; i < scores.length; i++) {
+    total += scores[i];
+}
+console.log(total)
