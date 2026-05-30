@@ -191,36 +191,49 @@ function render() {
         `
     })
 } */
-const todos =[];
+let todos = [];
 const list = document.querySelector("#list");
 const input = document.querySelector("#input");
 
 const btn = document.querySelector("#btn");
 
+const savedTodos = localStorage.getItem("todos");
+console.log(savedTodos)
+if (savedTodos) {
+
+    todos = JSON.parse(savedTodos);
+    console.log(todos)
+}
+render();
 btn.addEventListener("click", function () {
 
-  if (input.value === "") {
-    return;
-  }
+    if (input.value === "") {
+        return;
+    }
 
-  todos.push({
-    text: input.value
-  });
+    todos.push({
+        text: input.value
+    });
 
-  render();
+    localStorage.setItem(
+        "todos",
+        JSON.stringify(todos)
+    );
 
-  input.value = "";
+    render();
+
+    input.value = "";
 
 });
 
 
 function render() {
 
-  let html = "";
+    let html = "";
 
-  todos.forEach(function (todo, index) {
+    todos.forEach(function (todo, index) {
 
-    html += `
+        html += `
       <li>
         ${todo.text}
 
@@ -230,29 +243,34 @@ function render() {
       </li>
     `;
 
-  });
+    });
 
-  list.innerHTML = html;
+    list.innerHTML = html;
 
 }
 
 function removeTodo(deleteIndex) {
-confirm("確定刪除？")
-  /* const newTodos = todos.filter(function (todo, index) {
+    confirm("確定刪除？")
+    /* const newTodos = todos.filter(function (todo, index) {
+  
+      return index !== deleteIndex;
+  
+    });
+  
+    todos.length = 0;
+  
+    newTodos.forEach(function (todo) {
+  
+      todos.push(todo);
+  
+    }); */
+    todos.splice(deleteIndex, 1);
 
-    return index !== deleteIndex;
+    localStorage.setItem(
+        "todos",
+        JSON.stringify(todos)
+    );
 
-  });
-
-  todos.length = 0;
-
-  newTodos.forEach(function (todo) {
-
-    todos.push(todo);
-
-  }); */
-  todos.splice(deleteIndex , 1)
-
-  render();
+    render();
 
 }
