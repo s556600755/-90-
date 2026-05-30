@@ -236,9 +236,11 @@ function render() {
         html += `
       <li>
         ${todo.text}
-
+        <button onclick="editTodo(${index})">
+            編輯
+        </button>
         <button onclick="removeTodo(${index})">
-          刪除
+            刪除
         </button>
       </li>
     `;
@@ -250,7 +252,7 @@ function render() {
 }
 
 function removeTodo(deleteIndex) {
-    confirm("確定刪除？")
+    // confirm("確定刪除？")
     /* const newTodos = todos.filter(function (todo, index) {
   
       return index !== deleteIndex;
@@ -273,4 +275,21 @@ function removeTodo(deleteIndex) {
 
     render();
 
+}
+
+function editTodo(index) {
+
+    const newText = prompt(`請修改${todos[index].text}`);
+
+    if(newText.trim() === "") {
+        return
+    }
+    if (newText === null) {
+        return
+    }
+
+    todos[index].text = newText;
+    render();
+
+    localStorage.setItem("todos", JSON.stringify(todos))
 }
