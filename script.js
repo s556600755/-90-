@@ -141,7 +141,8 @@ btn.addEventListener("click", function () {
   `;
 
 }); */
-const chats = []
+//這是第11天
+/* const chats = []
 const data = []
 const todos = []
 const input = document.querySelector('#input');
@@ -189,4 +190,69 @@ function render() {
         <li>AI:${chat.bot}</li>
         `
     })
+} */
+const todos =[];
+const list = document.querySelector("#list");
+const input = document.querySelector("#input");
+
+const btn = document.querySelector("#btn");
+
+btn.addEventListener("click", function () {
+
+  if (input.value === "") {
+    return;
+  }
+
+  todos.push({
+    text: input.value
+  });
+
+  render();
+
+  input.value = "";
+
+});
+
+
+function render() {
+
+  let html = "";
+
+  todos.forEach(function (todo, index) {
+
+    html += `
+      <li>
+        ${todo.text}
+
+        <button onclick="removeTodo(${index})">
+          刪除
+        </button>
+      </li>
+    `;
+
+  });
+
+  list.innerHTML = html;
+
+}
+
+function removeTodo(deleteIndex) {
+confirm("確定刪除？")
+  /* const newTodos = todos.filter(function (todo, index) {
+
+    return index !== deleteIndex;
+
+  });
+
+  todos.length = 0;
+
+  newTodos.forEach(function (todo) {
+
+    todos.push(todo);
+
+  }); */
+  todos.splice(deleteIndex , 1)
+
+  render();
+
 }
