@@ -221,7 +221,7 @@ btn.addEventListener("click", function () {
     );
 
     render();
-
+    getTodo(input.value);
     input.value = "";
 
 });
@@ -279,7 +279,7 @@ function removeTodo(deleteIndex) {
 
 function editTodo(index) {
 
-    const newText = prompt(`請修改${todos[index].text}`);
+    const newText = prompt("請修改" , todos[index].text);
 
     if(newText.trim() === "") {
         return
@@ -293,3 +293,28 @@ function editTodo(index) {
 
     localStorage.setItem("todos", JSON.stringify(todos))
 }
+
+async function getPost() {
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+    
+    const data = await response.json();
+    console.log(data)
+
+    data.forEach((post)=>{
+        console.log(post.title)
+    })
+    
+}
+
+
+
+async function getTodo(value) {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users')
+    
+    const todos = await response.json();
+    console.log(todos[value].name)
+
+    
+    
+}
+
